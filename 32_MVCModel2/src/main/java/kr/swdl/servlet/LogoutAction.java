@@ -1,0 +1,21 @@
+package kr.swdl.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+public class LogoutAction implements Action {
+
+	@Override
+	public String execute(HttpServletRequest request) throws ServletException, IOException {
+		// 로그아웃 - 메모리를 해제 ? 세션?
+		HttpSession session = request.getSession();
+		if(session !=null)
+		//	session.removeAttribute("loginOK"); //항목 지우기, 부분적으로 지울때
+			session.invalidate(); // 서버에서 완전히 삭제 
+		return "index.html";
+	}
+
+}

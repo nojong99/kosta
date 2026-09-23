@@ -1,0 +1,24 @@
+public class ArrayTest_03 {
+	public static void main(String[] args) {
+		// 1~3등 1, 2, 5명
+		int [][] scores_1 = new int[3]
+				[5];
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 5; j++) {
+				System.out.print(scores_1[i][j]);
+			}
+			System.out.println();
+		}
+		int[][] scores_2 = new int[3][];
+		scores_2[0] = new int[1];
+		scores_2[1] = new int[2];
+		scores_2[2] = new int[5];
+		for (int i = 0; i < 3; i++) {
+			for(int j=0; j<scores_2[i].length; j++) {
+				System.out.print(scores_2[i][j]);
+			}
+			System.out.println();
+		}
+	}
+
+}

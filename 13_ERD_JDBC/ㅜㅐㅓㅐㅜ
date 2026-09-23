@@ -1,0 +1,121 @@
+// 특정 부서의 사원수를 확인
+//select DEPARTMENT_id from employees;
+
+select count(*) as "부서 사원수"from employees
+where department_id=80
+
+// 사원의 사번, 부서명을 확인하세요 -> 
+// 특정 사원(Neena)의 소속 부서명(department_name)과 부서 장의 이름(manager_id->first_name)을 확인하세요.
+select manager_id,department_id from employees
+where employee_id=101 
+
+select department_name from departments
+where department_id=90
+
+select first_name from employees
+where employee_id=100 
+
+select first_name from employees
+where manager_id=100
+
+//강사님 코드
+select m1.first_name 
+from employees e1, employees m1
+where e1.employee_id=101
+
+//강사님 코드
+select m1.first_name 
+from employees e1, employees m1
+where e1.employee_id=101 and e1.manager_id = m1.employee_id
+
+//평균 급여보다 많은 사원의 사번, 급여를 확인하세요.
+select employee_id,salary from employees
+group by employee_id,salary
+having salary>avg(salary)
+
+select tname from tab
+
+CREATE TABLE students (
+	student_id varchar2(20) NOT NULL,
+	name varchar2(20) NOT NULL,
+	total_scores NUMBER(5),
+	in_date DATE NOT NULL
+);
+
+CREATE UNIQUE INDEX PK_students
+	ON students (
+		student_id ASC
+	);
+
+ALTER TABLE students
+	ADD
+		CONSTRAINT PK_students
+		PRIMARY KEY (
+			student_id
+		);
+
+CREATE TABLE scores (
+	score_no NUMBER NOT NULL,
+	subject VARCHAR2(10) NOT NULL,
+	score NUMBER(3) NOT NULL,
+	student_id varchar2(20) NOT NULL
+);
+
+CREATE UNIQUE INDEX PK_scores
+	ON scores (
+		score_no ASC
+	);
+
+ALTER TABLE scores
+	ADD
+		CONSTRAINT PK_scores
+		PRIMARY KEY (
+			score_no
+		);
+
+ALTER TABLE scores
+	ADD
+		CONSTRAINT FK_students_TO_scores
+		FOREIGN KEY (
+			student_id
+		)
+		REFERENCES students (
+			student_id
+		);
+		
+		
+create sequence score_no_seq
+
+insert into students (student_id, name, in_date)
+values ('s001','홍석귀', '2001-01-01')
+
+insert into students (student_id, name, in_date)
+values ('s002','홍석키', sysdate)
+
+select * from students
+
+insert into scores 
+values (score_no_seq.nextval, '수학', 10, 's009')
+select * from scores
+
+delete from students;
+
+select * from students
+
+update students 
+set total_scores=10
+where student_id='s002'
+
+//관리자가 회원을 관리하는 UI를 작성하세요.
+// 관리자가 회원을 관리할 때 어떤 업무가 필요할지 리스트 ( 등록(어떻게 등록할건지 ),)
+// 업무 리스트 5개 이상.......
+// 모델링 -> DDL을 끌어내자
+// 샘플 데이터 -> insert를 끌어내~
+// 업무에 따른 sql 정의 해오세요.....
+// 만들었던 과정 pdf >>> 
+// // 어떤 업무에 필요한 내용 ( 개요가 정리되어있어야함)
+
+
+
+
+

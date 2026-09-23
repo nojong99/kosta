@@ -1,0 +1,28 @@
+package kr.swdl.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+
+import kr.swdl.model.CustomerService;
+
+public class AddCustomerAction implements Action {
+
+	@Override
+	public String execute(HttpServletRequest request) throws ServletException, IOException {
+		// 고객 등록 시 이벤트 여부 확인 -> 분기 처리
+		int point =0;
+		// 고객 등록 
+		String name = request.getParameter("name");
+		String phoneNumber = request.getParameter("phoneNumber");
+		String url="view/addCustomer.jsp";
+		if(new CustomerService().addCustomer(name, phoneNumber, point)) {
+			request.setAttribute("list", new CustomerService().getCustomers());
+			url="view/customerList.jsp";
+		}
+			
+		return url;
+	}
+
+}

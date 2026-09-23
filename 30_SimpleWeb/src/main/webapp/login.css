@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.main{
+	margin:250px auto; 
+	border: 1.5px solid; 
+	width: 30%;
+	border-radius:10px;
+	height: 350px;
+}
+h1{
+	text-align: center;
+	font-weight: 350;
+	margin-bottom: 0px;
+}
+
+.login{
+	margin-top: 50px;
+	text-align: center;
+	display: flex;
+	margin-left:50px;
+}
+
+.ment{
+	color: #506A93;
+	margin-top: 0px;
+}
+
+.button{
+	width: 75px; 
+	height: 50px; 
+	border-radius: 10px;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+
+.inputValue{
+	
+	text-align: right;
+	font-size: 25px;
+}
+
+input{
+	border-radius:5px;
+	margin-left: 10px;
+	
+}

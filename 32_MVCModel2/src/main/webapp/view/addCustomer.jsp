@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 페이지</title>
+</head>
+<body>
+	<%@ include file="adminOK.jsp" %>
+	<h1>고객 등록</h1>
+	<form action="controller?cmd=addCustomerAction" method="post">
+		고객 이름 <input name="name"> <br> 
+		고객 전화 번호 <input name="phoneNumber"> <br> 
+		<input type="submit" value="등록">
+
+	</form>
+</body>
+</html>

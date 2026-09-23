@@ -1,0 +1,14 @@
+package test.kr.swdl;
+
+class Solution {
+    public int solution(int[][] signals) {
+    	int[][] sig = {{2, 1, 2}, {5, 1, 1}};
+    	System.out.println(sig[1][1]);
+    	
+        int answer = 0;
+        return answer;
+    }
+    public static void main(String[] args) {
+		solution();
+	}
+}

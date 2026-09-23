@@ -1,0 +1,15 @@
+package test.kr.swdl;
+
+class Solution {
+	public static void main(String[] args) {
+		Solution s = new Solution();
+		s.solution(new int[][] {{2, 1, 2}, {5, 1, 1}});
+	}
+	public int solution(int[][] signals) {
+		int[][] sig = {{2, 1, 2}, {5, 1, 1}};
+		System.out.println(sig[1][1]);
+		
+		int answer = 0;
+		return answer;
+	}
+}

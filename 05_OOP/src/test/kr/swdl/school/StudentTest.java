@@ -1,0 +1,17 @@
+package test.kr.swdl.school;
+
+import kr.swdl.school.Student;
+import kr.swdl.school.Teacher;
+
+public class StudentTest {
+
+	public static void main(String[] args) {
+		Student s1 = new Student("200101001", "홍길동", 'M');
+		Teacher t1 = new Teacher("t001", 'M', "이순신");
+		s1.print();
+		t1.print();
+		
+		
+	}
+
+}

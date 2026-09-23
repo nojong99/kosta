@@ -1,0 +1,73 @@
+package kr.swdl.model;
+// VO - table, 업무, join.... subQuery
+public class CustomerVO {
+	private int customerId;
+	private String name;
+	private String phoneNumber;
+	private int point;
+	private String inDate;
+	
+	public CustomerVO() {
+
+	}
+	public CustomerVO(int customerId, String name, int point) {
+		setCustomerId(customerId);
+		setName(name);
+		setPoint(point);	}
+	public CustomerVO(int customerId, String name, String phoneNumber, int point, String inDate) {
+		setCustomerId(customerId);
+		setName(name);
+		setPhoneNumber(phoneNumber);
+		setPoint(point);
+		setInDate(inDate);
+	}
+
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
+	public String getInDate() {
+		return inDate;
+	}
+
+	public void setInDate(String inDate) {
+		this.inDate = inDate;
+	}
+
+	@Override
+	public String toString() {
+		return "CustomerVO [customerId=" + customerId + ", name=" + name + ", phoneNumber=" + phoneNumber + ", point="
+				+ point + ", inDate=" + inDate + "]";
+	}
+	 
+	
+	
+}

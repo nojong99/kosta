@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>재고 목록 조회</title>
+
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<style>
+body {
+	background-color: #f5f6f8;
+}
+
+.inventory-page {
+	padding: 30px;
+}
+
+/* 검색 영역 */
+.search-area {
+	width: 30%;
+	min-width: 400px;
+}
+
+.search-box {
+	background-color: white;
+	border: 1px solid #dee2e6;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+/* 날짜 */
+.current-date {
+	font-size: 15px;
+	color: #6c757d;
+	font-weight: 500;
+}
+
+/* 재고 상태 */
+.stock-status {
+	display: flex;
+	justify-content: flex-end;
+	gap: 15px;
+}
+
+.stock-status label {
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+/* 목록 */
+.inventory-table-area {
+	margin-top: 25px;
+	background-color: white;
+	border-radius: 10px;
+	overflow-x: auto;
+	border: 1px solid #dee2e6;
+}
+
+.inventory-table {
+	margin-bottom: 0;
+	min-width: 1200px;
+}
+
+.inventory-table th {
+	background-color: #f8f9fa;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
+.inventory-table td {
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+/* 폐기 상태 */
+.disposed {
+	color: #dc3545;
+	font-weight: 600;
+}
+
+/* 판매중 상태 */
+.selling {
+	color: #198754;
+	font-weight: 600;
+}
+
+/* 페이지네이션 */
+.pagination-area {
+	margin-top: 25px;
+	display: flex;
+	justify-content: center;
+}
+</style>
+</head>
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-lg bg-white border-bottom px-4">
+
+			<div class="container-fluid">
+				<a class="navbar-brand fw-bold me-4" href="index.html"> <i
+					class="bi bi-house-door-fill me-2"></i> 최강 ERP
+				</a>
+				<ul class="navbar-nav flex-grow-1 mb-2 mb-lg-0">
+
+					<li class="nav-item dropdown flex-fill text-center"><a
+						class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown"> 폐기량 동향 </a>
+
+						<ul class="dropdown-menu">
+
+							<li><a class="dropdown-item" href="#"> </a></li>
+
+						</ul></li>
+
+					<li class="nav-item dropdown flex-fill text-center"><a
+						class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown"> 재고 목록 조회 </a>
+						<ul class="dropdown-menu">
+
+							<li><a class="dropdown-item" href="#"> </a></li>
+
+						</ul></li>
+					<li class="nav-item dropdown flex-fill text-center"><a
+						class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown"> 회원 가입 요청 조회 </a>
+
+						<ul class="dropdown-menu">
+
+							<li><a class="dropdown-item" href="#"> </a></li>
+
+						</ul></li>
+
+
+
+				</ul>
+				<div
+					class="header-right d-flex flex-column align-items-center gap-1">
+					<div class="dropdown">
+						<button class="dropdown-toggle border-0 bg-transparent"
+							data-bs-toggle="dropdown">
+							<i class="bi bi-person-circle me-1"></i> 박관리자
+						</button>
+
+						<ul class="dropdown-menu dropdown-menu-end">
+							<li><a class="dropdown-item" href="#">프로필</a></li>
+							<li><a class="dropdown-item" href="#">설정</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="#">로그아웃</a></li>
+						</ul>
+					</div>
+
+					<div class="current-date">
+						현재날짜 <span id="currentDate">2026-09-23</span>
+					</div>
+				</div>
+			</div>
+
+		</nav>
+	</header>
+
+
+	<main class="inventory-page">
+
+		<!-- 제목 -->
+		<div class="mb-4">
+			<h3 class="fw-bold mb-1">재고 목록 조회</h3>
+			<p class="text-secondary mb-0">상품 및 협동조합별 재고를 조회할 수 있습니다.</p>
+		</div>
+
+
+		<!-- 검색 영역 -->
+		<div class="d-flex justify-content-center align-items-center">
+
+			<!-- 왼쪽 검색 -->
+			<div class="search-area">
+
+				<div class="search-box">
+
+					<div class="input-group">
+
+						<!-- 검색 조건 -->
+						<select class="form-select" style="max-width: 130px;">
+							<option value="product">상품명</option>
+							<option value="coop">협동조합원명</option>
+						</select>
+
+						<!-- 검색어 -->
+						<input type="text" class="form-control" placeholder="검색어 입력">
+
+						<!-- 검색 버튼 -->
+						<button class="btn btn-dark">
+							<i class="bi bi-search"></i>
+						</button>
+
+					</div>
+
+				</div>
+
+
+				<!-- 재고 상태 -->
+				<div class="stock-status fw-bold">
+
+					<label class="text-danger"> <input type="checkbox"
+						class="form-check-input me-1" id="disposed"> 폐기재고
+					</label> <label class="text-primary"> <input type="checkbox"
+						class="form-check-input me-1" id="selling"> 판매중인재고
+					</label>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<!-- 재고 목록 나중에 db에서 불러오는 값 넣을겁니다~ -->
+		<div class="inventory-table-area">
+
+			<table class="table table-hover inventory-table">
+
+				<thead>
+
+					<tr>
+						<th>순번</th>
+						<th>재고일련번호</th>
+						<th>상품명</th>
+						<th>재고수량(box)</th>
+						<th>단가(1box)</th>
+						<th>협동조합원명</th>
+						<th>보관기간</th>
+						<th>폐기일자</th>
+						<th>폐기사유</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td>1</td>
+						<td>SH260923001</td>
+						<td>설향딸기</td>
+						<td>25</td>
+						<td>32,000원</td>
+						<td>과일아삭</td>
+						<td>2026-09-30</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+
+					<tr>
+						<td>2</td>
+						<td>YD260923002</td>
+						<td>영동포도</td>
+						<td>18</td>
+						<td>28,000원</td>
+						<td>노종과수원</td>
+						<td>2026-10-08</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+
+					<tr>
+						<td>3</td>
+						<td>AP260923003</td>
+						<td>사과</td>
+						<td>30</td>
+						<td>24,000원</td>
+						<td>과일아삭</td>
+						<td>2026-10-15</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+
+					<tr>
+						<td>4</td>
+						<td>PE260923004</td>
+						<td>배</td>
+						<td>22</td>
+						<td>27,000원</td>
+						<td>노종과수원</td>
+						<td>2026-10-05</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+
+					<tr>
+						<td>5</td>
+						<td>WA260923005</td>
+						<td>수박</td>
+						<td>12</td>
+						<td>35,000원</td>
+						<td>진농원</td>
+						<td>2026-09-28</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+
+					<tr>
+						<td>6</td>
+						<td>PE260923006</td>
+						<td>복숭아</td>
+						<td>16</td>
+						<td>30,000원</td>
+						<td>과일아삭</td>
+						<td>2026-10-03</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+
+					<tr>
+						<td>7</td>
+						<td>GR260923007</td>
+						<td>거봉포도</td>
+						<td>10</td>
+						<td>31,000원</td>
+						<td>노종과수원</td>
+						<td>2026-10-20</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+
+					<tr>
+						<td>8</td>
+						<td>SH260923008</td>
+						<td>설향딸기</td>
+						<td>8</td>
+						<td>32,000원</td>
+						<td>진농원</td>
+						<td>2026-09-25</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+
+					<tr>
+						<td>9</td>
+						<td>AP260923009</td>
+						<td>사과</td>
+						<td>14</td>
+						<td>24,000원</td>
+						<td>노종과수원</td>
+						<td>2026-09-15</td>
+						<td>2026-09-16</td>
+						<td>미판매</td>
+					</tr>
+
+					<tr>
+						<td>10</td>
+						<td>YD260923010</td>
+						<td>영동포도</td>
+						<td>6</td>
+						<td>28,000원</td>
+						<td>과일아삭</td>
+						<td>2026-09-20</td>
+						<td>2026-09-21</td>
+						<td>미판매</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+		</div>
+
+
+		<!-- 페이지네이션 -->
+		<div class="pagination-area">
+
+			<nav>
+				<ul class="pagination">
+
+					<li class="page-item disabled"><a class="page-link" href="#">
+							<i class="bi bi-chevron-left"></i>
+					</a></li>
+
+					<li class="page-item active"><a class="page-link" href="#">1</a>
+					</li>
+
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+
+					<li class="page-item"><a class="page-link" href="#">4</a></li>
+
+					<li class="page-item"><a class="page-link" href="#">5</a></li>
+
+					<li class="page-item"><a class="page-link" href="#"> <i
+							class="bi bi-chevron-right"></i>
+					</a></li>
+
+				</ul>
+			</nav>
+
+		</div>
+
+	</main>
+<footer class="py-3 bg-white border-top">
+
+		<div class="container-fluid px-4">
+
+			<div class="d-flex justify-content-between">
+
+				<span class="text-muted"> 최강 ERP </span> <span class="text-muted">
+					최강 협동조합 </span>
+
+			</div>
+
+		</div>
+
+	</footer>
+
+	<script>
+		// 현재 날짜 표시
+		const today = new Date();
+
+		const year = today.getFullYear();
+		const month = String(today.getMonth() + 1).padStart(2, '0');
+		const day = String(today.getDate()).padStart(2, '0');
+
+		document.getElementById("currentDate").textContent = `${year}-${month}-${day}`;
+	</script>
+
+</body>
+</html>

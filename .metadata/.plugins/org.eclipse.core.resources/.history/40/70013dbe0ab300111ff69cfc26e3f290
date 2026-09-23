@@ -1,0 +1,121 @@
+package kr.swdl.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+public class CustomerDAO {
+	private Connection conn;
+
+	// 원하는 대로 추가 -> 오버 로딩 ==> 메모리에서 처리
+	// 디폴트 생성자 쓰면 안됨 conn을 전달받아야하므로 (Service)
+	public CustomerDAO(Connection conn) { // 1번째 방법
+		this.conn = conn;
+	}
+
+	public String login(String adminId, String pw) {
+		String name = null;
+		PreparedStatement pstmt;
+		try {
+			pstmt = conn.prepareStatement(Query.ADMIN_LOGIN);
+			pstmt.setString(1, adminId);
+			pstmt.setString(2, pw);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				name = rs.getString(1);
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return name;
+	}
+
+	// 중복체크 끝 /
+	public List<CustomerVO> getCustomers() {
+		List<CustomerVO> list = new ArrayList<CustomerVO>();
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(Query.GET_CUSTOMERS);
+			while (rs.next()) {
+				list.add(new CustomerVO(rs.getInt(1), rs.getString(2), rs.getInt("point")));
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	// 현재 등록된 고객의 번호가 필요
+	// dao는 왔다갔다 하면 x
+	public int getCustomerId() {
+		int customerId = 0;
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(Query.GET_CUSTOMER_ID);
+			rs.next();
+			customerId = rs.getInt(1);
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return customerId;
+	}
+
+	// 연쇄적인 테스트
+	public boolean updateCustmerPoint(int custmoerId, int point) {
+		boolean result = false;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(Query.UPDATE_POINT);
+			pstmt.setInt(1, point);
+			pstmt.setInt(2, custmoerId);
+			result = pstmt.executeUpdate() == 1;
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean addCustomer(String name, String phoneNumber) {
+		boolean result = false;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(Query.ADD_CUSTOMER);
+			pstmt.setString(1, name);
+			pstmt.setString(2, phoneNumber);
+			result = pstmt.executeUpdate() == 1;
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String getCustomer(int customerId) {
+		String name = null;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_CUSTOMER);
+			pstmt.setInt(1, customerId);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				name = rs.getString(1);
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return name;
+	}
+}

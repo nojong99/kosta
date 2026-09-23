@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 동작을 정의 -->
+<script type="text/javascript">
+	function a1() {
+		console.log('a1');
+	}
+
+	a2 = function() {
+		console.log('a2');
+	}
+	//처음 선언 권장
+	var a3 = function() {
+		console.log('a3');
+	}
+	var a3 = function() {
+		console.log('a3 update');
+	}
+
+	// 선언 - 한번만 선언(문법 추가), 수정 가능/ 오버라이딩
+	// 오버라이딩 하기 싫어요 -> 자바에서는 final
+	let a4 = function() {
+		console.log('a4');
+	}
+	a4 = function() {
+		console.log('a4 update');
+	}
+	
+	// 수정 x !!! 
+	const a5 = function () {
+		console.log('a5')
+	}
+	// 식별자를 선언할 때 안써도 문제없지만, var을 썼다가
+	// let으로 1번만 선언할 수 있도록 하자.
+	// const로 수정못하게 막자! 
+	// 식별자를 선언~~ 타입이 x  
+	// 시점을 예상할 수 없다. 함수 -> 시점을 결정해야한다...
+	// 이벤트 발생 = 시점 
+	// 이벤트 핸들링 
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

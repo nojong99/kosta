@@ -1,0 +1,18 @@
+package test.kr.swdl;
+
+
+import java.time.LocalDate;
+
+import kr.swdl.MemberService;
+import kr.swdl.MemberServiceAType;
+
+public class MemberTest {
+
+	public static void main(String[] args) {
+		MemberService service;
+		service = new MemberServiceAType();
+		System.out.println(service.CreateMember("nojong", "j2", 'M'));
+		System.out.println(LocalDate.now().getMonthValue());
+	}
+
+}

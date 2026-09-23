@@ -1,0 +1,14 @@
+//사이즈가 44, 55, 66, 77이 있다.
+public class ArrayTest_02 {
+
+	public static void main(String[] args) {
+		int[] sizes= new int[4];
+		sizes[0]=44;
+		for(int i=1; i<sizes.length; i+=11) {
+			sizes[i]+=i;
+			System.out.println(sizes[i]);
+		}
+		
+	}
+
+}

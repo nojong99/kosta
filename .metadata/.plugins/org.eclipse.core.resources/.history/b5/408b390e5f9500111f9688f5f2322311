@@ -1,0 +1,12 @@
+
+public class StudentInfoTest {
+	public static void main(String[] args) {
+		int studentid= 200101001;
+		String name = "홍길동";
+		char gender = 'M';
+		String stu1= studentid+""+name+gender+"";
+		
+		String[] studentInfo = new String[2];
+		
+	}
+}

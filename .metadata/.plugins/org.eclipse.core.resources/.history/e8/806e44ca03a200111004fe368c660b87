@@ -1,0 +1,16 @@
+package test.kr.swdl;
+
+
+class Solution {
+	public static void main(String[] args) {
+		
+	}
+    public int[] solution(String[] wallpaper) {
+        int[] answer = {};
+        
+        
+        
+        return answer;
+            
+    }
+}

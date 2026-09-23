@@ -1,0 +1,47 @@
+package kr.swdl.school;
+
+import java.util.Objects;
+
+public class Person {
+	private String name;
+	private char gender;
+//	public Person() {	} // 일단 자식 호출
+	public Person(String name, char gender) {
+		this.name = name;
+		this.gender = gender;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public char getGender() {
+		return gender;
+	}
+	
+	public void print() {
+		System.out.println("이름: "+name +"성별: "+gender);
+	};
+
+	@Override
+	public String toString() {
+		return " 이름 : "+name +" 성별 : "+gender;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(gender, name);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return gender == other.gender && Objects.equals(name, other.name);
+	}
+	
+	
+}

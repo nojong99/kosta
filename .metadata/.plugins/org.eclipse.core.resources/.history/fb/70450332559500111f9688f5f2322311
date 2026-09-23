@@ -1,0 +1,12 @@
+// 학생의 정보를 저장하려고 합니다.
+// 정보는 학번, 이름, 성별(M, F)이 있습니다.
+// 200101001
+
+public class ArrayTest_04 {
+	public static void main(String[] args) {
+		int[] studenInfo = new int[3];
+		
+
+	}
+
+}

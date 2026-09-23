@@ -1,0 +1,19 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import kr.swdl.model.CustomerService;
+
+public class CustomerServiceTest {
+
+
+	@Test
+	public void 고객등록() {
+		new CustomerService().addCustomer("jh", "010-8835-3333");
+	}
+
+}

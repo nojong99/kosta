@@ -1,0 +1,64 @@
+@charset "UTF-8";
+.headerInfo{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1.5px solid;
+}
+.container{
+    border: 0.5px solid;
+}
+.nav{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    border: 1.5px solid;
+    width: 175px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 350;
+}
+
+th{
+    color: #506A93;
+}
+.passinfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+}
+
+a{
+    margin: 15px;
+}
+
+.memberinfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.memberUpdateBtn{
+    margin-top: 35px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.insertPassBtn{
+    margin-top: 35px;   
+    height: 30px;
+    border-radius: 10px;
+}
+ 
+.memberTable{
+    text-align: center  ;
+}
+
+ .passTable{
+    width: 100%;
+    text-align: center;
+ }

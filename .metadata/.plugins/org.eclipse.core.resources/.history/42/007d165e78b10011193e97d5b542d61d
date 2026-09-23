@@ -1,0 +1,33 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import kr.swdl.model.CustomerDAO;
+import kr.swdl.model.CustomerService;
+import kr.swdl.model.DBCP;
+
+public class CustomerServiceTest {
+
+//	@Test
+//	public void 고객등록() {
+//		new CustomerService().addCustomer("jh", "010-8835-3333");
+//	}
+	// ACTION은 트랜잭션 관리 안함
+	@Test
+	public void 회원등록() {
+		assertTrue(new CustomerService().addCustomer("김동현", "010-2555-5532"));
+	}
+	@Test
+	public void 회원등록_이벤트() {
+		
+	}
+	
+	 
+	
+	
+
+}

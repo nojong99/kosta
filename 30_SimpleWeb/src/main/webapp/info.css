@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+h1{
+	text-align: center;
+	color: #524EF7;
+	background-color: #F7F6D9;
+}
+h6, h10 {
+	text-align: center;
+	color:pink;
+}
+.classColor {color:pink}
+.classSize {font-size: 50px;}
+#idSize {font-size:20pt;}
+.picture{
+	text-align: center;
+}

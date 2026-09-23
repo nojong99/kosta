@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;ok.jsp&apos; to &apos;view&apos;" description="Move &apos;ok.jsp&apos; to &apos;view&apos;" destination="src/main/webapp/view" element1="src/main/webapp/ok.jsp" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1789350002222" updateReferences="true"/>
+</session>

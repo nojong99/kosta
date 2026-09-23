@@ -1,0 +1,7 @@
+package kr.swdl.model;
+
+public class CustomerService {
+	public boolean addCustomer(String name, String phoneNo) {
+		
+	}
+}

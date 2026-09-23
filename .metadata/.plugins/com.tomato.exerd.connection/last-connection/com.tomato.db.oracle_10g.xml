@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+  <connection>
+    <productId>com.tomato.db.oracle_10g</productId>
+    <productName>Oracle 9i ~ 21c</productName>
+    <name>oracle11_6</name>
+    <driverJars>
+      <driverJar>C:\eGovFrameDev-4.3.1-64bit\workspace-egov\ojdbc6.jar</driverJar>
+    </driverJars>
+    <driverClass>oracle.jdbc.OracleDriver</driverClass>
+    <url>jdbc:oracle:thin:@127.0.0.1:1521:xe</url>
+    <properties>
+      <password>hr</password>
+      <port>1521</port>
+      <host>127.0.0.1</host>
+      <user>hr</user>
+      <internal_logon>normal</internal_logon>
+      <sId>xe</sId>
+    </properties>
+    <extendedProperties>
+      <connectionString />
+    </extendedProperties>
+  </connection>
+</database>
+

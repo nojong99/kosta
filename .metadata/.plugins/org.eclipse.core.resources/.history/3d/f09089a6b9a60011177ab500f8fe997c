@@ -1,0 +1,22 @@
+package test.kr.swdl;
+
+class Solution {
+	public static void main(String[] args) {
+		Solution s = new Solution();
+		s.solution(new int[][] {{2, 1, 2}, {5, 1, 1}});
+	}
+	public int solution(int[][] signals) {
+		int first_yellow=0;
+		int[][] sig = {{2, 1, 2}, {5, 1, 1}};
+		for (int i = 0; i < sig.length; i++) {
+			first_yellow=sig[i][0]+sig[i][1];
+			if(sig[i][0]==sig[i][1]) {
+				return sig[i][0];
+			}
+			System.out.println(first_yellow);
+		}
+		
+		int answer = first_yellow;
+		return answer;
+	}
+}
