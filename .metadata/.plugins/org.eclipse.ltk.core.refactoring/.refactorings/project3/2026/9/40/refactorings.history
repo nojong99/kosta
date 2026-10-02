@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;project3/src/main/webapp/view/DisposalRequestList.jsp&apos; to &apos;disposalRequestList.jsp&apos;" description="Rename resource &apos;DisposalRequestList.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/view/DisposalRequestList.jsp" name="disposalRequestList.jsp" stamp="1790756941870" updateReferences="true"/>
+</session>
