@@ -1,4 +1,11 @@
 eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=C\:/Users/KOSTA/Downloads/eGovFrameDev-4.3.1-64bit/eclipse/
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Users/KOSTA/Downloads/eGovFrameDev-4.3.1-64bit/eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.11.v20240426-1830/jre/lib/jrt-fs.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=C\:/Users/KOSTA/Downloads/eGovFrameDev-4.3.1-64bit/eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.11.v20240426-1830/jre/lib/src.zip
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.classpathVariable.JSR305_ANNOTATIONS=C\:/Users/KOSTA/Downloads/eGovFrameDev-4.3.1-64bit/eclipse/plugins/com.github.spotbugs.plugin.eclipse_4.8.5.r202405032209-1dbd799/lib/jsr305-3.0.2.jar
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=C\:/Users/KOSTA/Downloads/eGovFrameDev-4.3.1-64bit/eclipse/plugins/org.junit_4.13.2.v20230809-1000.jar
+org.eclipse.jdt.core.classpathVariable.M2_REPO=C\:/Users/KOSTA/.m2/repository
 org.eclipse.jdt.core.codeComplete.argumentPrefixes=
 org.eclipse.jdt.core.codeComplete.argumentSuffixes=
 org.eclipse.jdt.core.codeComplete.fieldPrefixes=

@@ -1,7 +1,0 @@
-package kr.swdl.model;
-
-public class CustomerService {
-	public boolean addCustomer(String name, String phoneNo) {
-		return new CustomerDAO(conn).addCustomer("yyy", "010-5552-1123");;
-	}
-}

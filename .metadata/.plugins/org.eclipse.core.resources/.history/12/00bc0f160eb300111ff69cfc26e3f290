@@ -1,9 +1,0 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<h1>관리자 전용</h1>
-
-${loginName}님 환영합니다. <a href="controller?cmd=logoutAction">로그아웃</a>
-<br>
-<a href="controller?cmd=addCustomerUI">등록</a>
-<br>
-<a href="controller?cmd=customersUI">전체 리스트 조회</a>

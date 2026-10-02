@@ -6,8 +6,16 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value="modal"/>
 		<list key="findhistory">
-			<item value="distroy"/>
+			<item value="modal-content"/>
+			<item value="js"/>
+			<item value="script"/>
+			<item value="d-flex justify-content-center align-items-center"/>
+			<item value="협동"/>
+			<item value="상품 및"/>
+			<item value="sc"/>
+			<item value="current-date"/>
 		</list>
 		<list key="replacehistory">
 		</list>

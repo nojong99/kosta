@@ -1,9 +1,0 @@
-@charset "UTF-8";
-
-.inventory-modal-dialog {
-	max-width: 40%;
-}
-
-.inventory-table tbody tr {
-	cursor: pointer;
-}

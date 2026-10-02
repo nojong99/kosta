@@ -1,7 +1,0 @@
-package kr.swdl.model;
-// VO - table, 업무, join.... subQuery
-public class CustomerVO {
-	private int customerId;
-	private String name;
-	private int point;
-}
